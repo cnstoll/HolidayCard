@@ -325,7 +325,7 @@ open class Card {
             let data = try? Data(contentsOf: URL(fileURLWithPath: fontPath))
             let providerRef = CGDataProvider(data: data! as CFData)
             let font = CGFont(providerRef!)
-            CTFontManagerRegisterGraphicsFont(font, nil)
+            CTFontManagerRegisterGraphicsFont(font!, nil)
         }
     }
 }

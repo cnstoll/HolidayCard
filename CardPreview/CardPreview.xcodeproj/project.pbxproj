@@ -13,7 +13,8 @@
 		26531F261A351F3000299230 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26531F251A351F3000299230 /* Images.xcassets */; };
 		26531F291A351F3000299230 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26531F271A351F3000299230 /* LaunchScreen.xib */; };
 		26531F351A351F3000299230 /* CardPreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26531F341A351F3000299230 /* CardPreviewTests.swift */; };
-		26531F3F1A351F3E00299230 /* CardBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26531F3E1A351F3E00299230 /* CardBuilder.framework */; };
+		55FFF2891F893E940090FD6B /* CardBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FFF2881F893E940090FD6B /* CardBuilder.framework */; };
+		55FFF28A1F893E940090FD6B /* CardBuilder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55FFF2881F893E940090FD6B /* CardBuilder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,20 @@
 			remoteInfo = CardPreview;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		55FFF28B1F893E940090FD6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				55FFF28A1F893E940090FD6B /* CardBuilder.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26531F191A351F3000299230 /* CardPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +53,7 @@
 		26531F331A351F3000299230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26531F341A351F3000299230 /* CardPreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreviewTests.swift; sourceTree = "<group>"; };
 		26531F3E1A351F3E00299230 /* CardBuilder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardBuilder.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos/CardBuilder.framework"; sourceTree = "<group>"; };
+		55FFF2881F893E940090FD6B /* CardBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26531F3F1A351F3E00299230 /* CardBuilder.framework in Frameworks */,
+				55FFF2891F893E940090FD6B /* CardBuilder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +78,7 @@
 		26531F101A351F3000299230 = {
 			isa = PBXGroup;
 			children = (
+				55FFF2881F893E940090FD6B /* CardBuilder.framework */,
 				26531F3E1A351F3E00299230 /* CardBuilder.framework */,
 				26531F1B1A351F3000299230 /* CardPreview */,
 				26531F311A351F3000299230 /* CardPreviewTests */,
@@ -126,6 +143,7 @@
 				26531F151A351F3000299230 /* Sources */,
 				26531F161A351F3000299230 /* Frameworks */,
 				26531F171A351F3000299230 /* Resources */,
+				55FFF28B1F893E940090FD6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,18 +179,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Mutual Mobile";
 				TargetAttributes = {
 					26531F181A351F3000299230 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = GX7CGWUZDA;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 					};
 					26531F2D1A351F3000299230 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = GX7CGWUZDA;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						TestTargetID = 26531F181A351F3000299230;
 					};
 				};
@@ -272,14 +290,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -319,14 +343,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -364,7 +394,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -381,7 +411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -402,7 +432,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardPreview.app/CardPreview";
 			};
 			name = Debug;
@@ -420,7 +450,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mutualmobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardPreview.app/CardPreview";
 			};
 			name = Release;
