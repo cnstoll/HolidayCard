@@ -12,44 +12,44 @@ import UIKit
 private var imageCacheDictionary = [ClipArt : UIImage]()
 
 
-public class Card {
+open class Card {
     
     let view : UIView
     
-    public func debugQuickLookObject() -> AnyObject? {
+    open func debugQuickLookObject() -> AnyObject? {
         UIGraphicsBeginImageContext(view.bounds.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return image
     }
     
-    public var backgroundColor : Color = Color.LightGreen {
+    open var backgroundColor : Color = Color.lightGreen {
         didSet {
             addBackgroundColor(self.backgroundColor)
         }
     }
     
-    public var greetingText : String = "" {
+    open var greetingText : String = "" {
         didSet {
             addGreetingText(self.greetingText)
         }
     }
     
-    public var messageText : String = "" {
+    open var messageText : String = "" {
         didSet {
             addMessageText(self.messageText)
         }
     }
     
-    public var messageFont : Font = Font.MarkerFelt {
+    open var messageFont : Font = Font.markerFelt {
         didSet {
             changeMessageFont(self.messageFont)
         }
     }
     
-    public var greetingFont : Font = Font.MarkerFelt {
+    open var greetingFont : Font = Font.markerFelt {
         didSet {
             changeGreetingFont(self.greetingFont)
         }
@@ -57,55 +57,55 @@ public class Card {
     
     
     public init() {
-        view = UIView(frame: CGRectMake(0, 0, 640, 480))
+        view = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 480))
         
         Card.loadCustomFonts()
         
-        greetingLabel = UILabel(frame: CGRectMake(0, 60, 640, 140))
-        greetingLabel.backgroundColor = UIColor.clearColor()
+        greetingLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 640, height: 140))
+        greetingLabel.backgroundColor = UIColor.clear
         greetingLabel.font = UIFont(name: "MarkerFelt-Thin", size: 64)
-        greetingLabel.textAlignment = NSTextAlignment.Center
+        greetingLabel.textAlignment = NSTextAlignment.center
         greetingLabel.numberOfLines = 0
-        greetingLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        greetingLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         greetingLabel.clipsToBounds = false
         view.addSubview(greetingLabel)
         
-        messageLabel = UILabel(frame: CGRectMake(0, 400, 640, 80))
-        messageLabel.backgroundColor = UIColor.clearColor()
+        messageLabel = UILabel(frame: CGRect(x: 0, y: 400, width: 640, height: 80))
+        messageLabel.backgroundColor = UIColor.clear
         messageLabel.font = UIFont(name: "MarkerFelt-Thin", size: 36)
-        messageLabel.textAlignment = NSTextAlignment.Center
+        messageLabel.textAlignment = NSTextAlignment.center
         view.addSubview(messageLabel)
         
         clipArtDictionary = [ClipArt : UIImageView]()
     }
     
-    public func addBackgroundColor(color : Color) {
+    open func addBackgroundColor(_ color : Color) {
         view.backgroundColor = Card.colorForColor(color)
     }
     
-    public func addGreetingText(text : String) {
+    open func addGreetingText(_ text : String) {
         greetingLabel.text = text
     }
     
-    public func addMessageText(text : String) {
+    open func addMessageText(_ text : String) {
         messageLabel.text = text
     }
     
-    public func addClipArtImage(image : ClipArt) {
+    open func addClipArtImage(_ image : ClipArt) {
         let existingView = clipArtDictionary[image]
         
         if let _ = existingView {
             
         } else {
             let newView = UIImageView(frame: frameForClipArt(image))
-            newView.contentMode = UIViewContentMode.ScaleAspectFit
+            newView.contentMode = UIViewContentMode.scaleAspectFit
             newView.image = imageForClipArt(image)
             view.addSubview(newView)
             clipArtDictionary[image] = newView
         }
     }
     
-    public func moveClipArtImageUp(image : ClipArt) {
+    open func moveClipArtImageUp(_ image : ClipArt) {
         let existingView = clipArtDictionary[image]
         
         if let theExistingView = existingView {
@@ -120,7 +120,7 @@ public class Card {
         }
     }
     
-    public func moveClipArtImageDown(image : ClipArt) {
+    open func moveClipArtImageDown(_ image : ClipArt) {
         let existingView = clipArtDictionary[image]
         
         if let theExistingView = existingView {
@@ -135,7 +135,7 @@ public class Card {
         }
     }
     
-    public func moveClipArtImageLeft(image : ClipArt) {
+    open func moveClipArtImageLeft(_ image : ClipArt) {
         let existingView = clipArtDictionary[image]
         
         if let theExistingView = existingView {
@@ -150,7 +150,7 @@ public class Card {
         }
     }
     
-    public func moveClipArtImageRight(image : ClipArt) {
+    open func moveClipArtImageRight(_ image : ClipArt) {
         let existingView = clipArtDictionary[image]
         
         if let theExistingView = existingView {
@@ -165,11 +165,11 @@ public class Card {
         }
     }
     
-    public func changeGreetingFont(font : Font) {
+    open func changeGreetingFont(_ font : Font) {
         greetingLabel.font = greetingFontForFont(font)
     }
     
-    public func changeMessageFont(font : Font) {
+    open func changeMessageFont(_ font : Font) {
         messageLabel.font = messageFontForFont(font)
     }
     
@@ -177,35 +177,35 @@ public class Card {
     
     
     
-    private let greetingLabel : UILabel
-    private let messageLabel : UILabel
-    private var clipArtDictionary : [ClipArt : UIImageView]
+    fileprivate let greetingLabel : UILabel
+    fileprivate let messageLabel : UILabel
+    fileprivate var clipArtDictionary : [ClipArt : UIImageView]
     
     
 
     
-    class func colorForColor(color : Color) -> UIColor {
+    class func colorForColor(_ color : Color) -> UIColor {
         switch(color) {
-        case .LightBlue:
+        case .lightBlue:
             return UIColor(netHex:0xBDDEF5)
-        case .LightGreen:
+        case .lightGreen:
             return UIColor(netHex:0xABE29D)
-        case .LightOrange:
+        case .lightOrange:
             return UIColor(netHex:0xF4CF99)
-        case .LightRed:
+        case .lightRed:
             return UIColor(netHex:0xFFA194)
-        case .LightYellow:
+        case .lightYellow:
             return UIColor(netHex: 0xF0F4A9)
-        case .HollyGreen:
+        case .hollyGreen:
             return UIColor(netHex: 0x72b48f)
-        case .SnowWhite:
+        case .snowWhite:
             return UIColor(netHex: 0xf4f1e4)
-        case .BlueSky:
+        case .blueSky:
             return UIColor(netHex: 0x80c6d7)
         }
     }
     
-    private func imageForClipArt(clipArt : ClipArt) -> UIImage {
+    fileprivate func imageForClipArt(_ clipArt : ClipArt) -> UIImage {
         if let image = imageCacheDictionary[clipArt] {
             return image
         }
@@ -213,30 +213,30 @@ public class Card {
         var imageName = "snowman"
         
         switch(clipArt) {
-        case .Dradle:
+        case .dradle:
             imageName = "dradle"
-        case .Garland:
+        case .garland:
             imageName = "garland"
-        case .Holly:
+        case .holly:
             imageName = "holly"
-        case .Menorah:
+        case .menorah:
             imageName = "menorah"
-        case .Present:
+        case .present:
             imageName = "present"
-        case .Snowflake1:
+        case .snowflake1:
             imageName = "snowflake1-a"
-        case .Snowflake2:
+        case .snowflake2:
             imageName = "snowflake2-a"
-        case .Snowman:
+        case .snowman:
             imageName = "snowman"
-        case .Star:
+        case .star:
             imageName = "star"
-        case .Tree:
+        case .tree:
             imageName = "tree"
         }
         
-        let bundle = NSBundle.mainBundle()
-        let path = bundle.pathForResource(imageName, ofType: "png")
+        let bundle = Bundle.main
+        let path = bundle.path(forResource: imageName, ofType: "png")
         let image = UIImage(contentsOfFile: path!)
         
         if let cacheImage = image {
@@ -246,86 +246,86 @@ public class Card {
         return image!
     }
     
-    private func frameForClipArt(clipArt : ClipArt) -> CGRect {
+    fileprivate func frameForClipArt(_ clipArt : ClipArt) -> CGRect {
         switch(clipArt) {
-        case .Dradle:
-            return CGRectMake(440, 320, 60, 90)
-        case .Garland:
-            return CGRectMake(0, -20, 640, 256)
-        case .Holly:
-            return CGRectMake(300, 340, 80, 60)
-        case .Menorah:
-            return CGRectMake(180, 240, 80, 80)
-        case .Present:
-            return CGRectMake(280, 180, 70, 80)
-        case .Snowflake1:
-            return CGRectMake(380, 240, 80, 80)
-        case .Snowflake2:
-            return CGRectMake(120, 160, 80, 80)
-        case .Snowman:
-            return CGRectMake(540, 360, 90, 120)
-        case .Star:
-            return CGRectMake(440, 120, 80, 80)
-        case .Tree:
-            return CGRectMake(60, 250, 120, 220)
+        case .dradle:
+            return CGRect(x: 440, y: 320, width: 60, height: 90)
+        case .garland:
+            return CGRect(x: 0, y: -20, width: 640, height: 256)
+        case .holly:
+            return CGRect(x: 300, y: 340, width: 80, height: 60)
+        case .menorah:
+            return CGRect(x: 180, y: 240, width: 80, height: 80)
+        case .present:
+            return CGRect(x: 280, y: 180, width: 70, height: 80)
+        case .snowflake1:
+            return CGRect(x: 380, y: 240, width: 80, height: 80)
+        case .snowflake2:
+            return CGRect(x: 120, y: 160, width: 80, height: 80)
+        case .snowman:
+            return CGRect(x: 540, y: 360, width: 90, height: 120)
+        case .star:
+            return CGRect(x: 440, y: 120, width: 80, height: 80)
+        case .tree:
+            return CGRect(x: 60, y: 250, width: 120, height: 220)
         }
     }
     
-    private func greetingFontForFont(font : Font) -> UIFont {
+    fileprivate func greetingFontForFont(_ font : Font) -> UIFont {
         switch(font) {
-        case .AbrilFatFace:
+        case .abrilFatFace:
             return UIFont(name: "Abril FatFace", size: 52)!
-        case .Handlee:
+        case .handlee:
             return UIFont(name: "Handlee-Regular", size: 64)!
-        case .MarkerFelt:
+        case .markerFelt:
             return UIFont(name: "MarkerFelt-Thin", size: 64)!
-        case .Pacifico:
+        case .pacifico:
             return UIFont(name: "Pacifico", size: 48)!
-        case .Satisfy:
+        case .satisfy:
             return UIFont(name: "Satisfy", size: 52)!
-        case .Savoye:
+        case .savoye:
             return UIFont(name: "SavoyeLetPlain", size: 96)!
-        case .Zapfino:
+        case .zapfino:
             return UIFont(name: "Zapfino", size: 40)!
         }
     }
     
-    private func messageFontForFont(font : Font) -> UIFont {
+    fileprivate func messageFontForFont(_ font : Font) -> UIFont {
         switch(font) {
-        case .AbrilFatFace:
+        case .abrilFatFace:
             return UIFont(name: "Abril FatFace", size: 24)!
-        case .Handlee:
+        case .handlee:
             return UIFont(name: "Handlee-Regular", size: 32)!
-        case .MarkerFelt:
+        case .markerFelt:
             return UIFont(name: "MarkerFelt-Thin", size: 32)!
-        case .Pacifico:
+        case .pacifico:
             return UIFont(name: "Pacifico", size: 32)!
-        case .Satisfy:
+        case .satisfy:
             return UIFont(name: "Satisfy", size: 32)!
-        case .Savoye:
+        case .savoye:
             return UIFont(name: "SavoyeLetPlain", size: 48)!
-        case .Zapfino:
+        case .zapfino:
             return UIFont(name: "Zapfino", size: 28)!
         }
     }
     
-    private class func loadCustomFonts() {
+    fileprivate class func loadCustomFonts() {
         loadCustomFontWithName("AbrilFatFace")
         loadCustomFontWithName("Handlee")
         loadCustomFontWithName("Pacifico")
         loadCustomFontWithName("Satisfy")
     }
     
-    private class func loadCustomFontWithName(name : String) {
-        let bundle = NSBundle.mainBundle()
+    fileprivate class func loadCustomFontWithName(_ name : String) {
+        let bundle = Bundle.main
 
-        let path = bundle.pathForResource(name, ofType: "ttf")
+        let path = bundle.path(forResource: name, ofType: "ttf")
         
         if let fontPath = path {
-            let data = NSData(contentsOfFile: fontPath)
-            let providerRef = CGDataProviderCreateWithCFData(data)
-            let font = CGFontCreateWithDataProvider(providerRef)
-            CTFontManagerRegisterGraphicsFont(font!, nil)
+            let data = try? Data(contentsOf: URL(fileURLWithPath: fontPath))
+            let providerRef = CGDataProvider(data: data! as CFData)
+            let font = CGFont(providerRef!)
+            CTFontManagerRegisterGraphicsFont(font, nil)
         }
     }
 }

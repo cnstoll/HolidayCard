@@ -9,11 +9,11 @@
 import Foundation
 
 public enum Font {
-    case AbrilFatFace
-    case Handlee
-    case MarkerFelt
-    case Pacifico
-    case Satisfy
-    case Savoye
-    case Zapfino
+    case abrilFatFace
+    case handlee
+    case markerFelt
+    case pacifico
+    case satisfy
+    case savoye
+    case zapfino
 }

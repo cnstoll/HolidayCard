@@ -10,42 +10,44 @@ import Foundation
 import UIKit
 import QuartzCore
 
-public func printCard(card : Card) -> UIImage {
+public func printCard(_ card : Card) -> UIImage {
     
     let pdfData = NSMutableData()
     
-    UIGraphicsBeginPDFContextToData(pdfData, CGRectMake(0, 0, 640, 960), nil);
+    UIGraphicsBeginPDFContextToData(pdfData, CGRect(x: 0, y: 0, width: 640, height: 960), nil);
     UIGraphicsBeginPDFPage();
     
     let pdfContext = UIGraphicsGetCurrentContext()
     
-    let pageView = UIView(frame: CGRectMake(0, 0, 640, 960))
+    let pageView = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 960))
     card.view.frame.origin.y = 480
     pageView.addSubview(card.view)
     
-    pageView.layer.renderInContext(pdfContext!)
+    pageView.layer.render(in: pdfContext!)
     
     UIGraphicsEndPDFContext();
     
     
-    let documentDirectories = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
-    let documentDirectory: AnyObject? = documentDirectories.first
+    let documentDirectories = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+    let documentDirectory = documentDirectories.first
+    let documentDirectoryURL = URL(fileURLWithPath: documentDirectory!)
 
-    let documentDirectoryFilename = documentDirectory?.stringByAppendingPathComponent("HolidayCard.pdf")
+    let documentDirectoryFilename = documentDirectoryURL.appendingPathComponent("HolidayCard.pdf")
     
-    pdfData.writeToFile(documentDirectoryFilename!, atomically: true)
+    
+    pdfData.write(toFile: documentDirectoryFilename.path, atomically: true)
     
     
     UIGraphicsBeginImageContext(card.view.bounds.size)
-    card.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+    card.view.layer.render(in: UIGraphicsGetCurrentContext()!)
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    return image
+    return image!
 }
 
 public func printDocumentsDirectory() -> NSString {
-    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
     
     return documentsPath
 }

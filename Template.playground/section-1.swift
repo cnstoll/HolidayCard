@@ -2,43 +2,47 @@
 
 import UIKit
 import XCPlayground
+import PlaygroundSupport
 
 // This helps you build cards
-import CardBuilder
+import
+
+
+CardBuilder
 
 
 // Color Options
-let blueSky = Color.BlueSky
-let hollyGreen = Color.HollyGreen
-let lightBlue = Color.LightBlue
-let lightGreen = Color.LightGreen
-let lightOrange = Color.LightOrange
-let lightRed = Color.LightRed
-let lightYellow = Color.LightYellow
-let snowWhite = Color.SnowWhite
+let blueSky = Color.blueSky
+let hollyGreen = Color.hollyGreen
+let lightBlue = Color.lightBlue
+let lightGreen = Color.lightGreen
+let lightOrange = Color.lightOrange
+let lightRed = Color.lightRed
+let lightYellow = Color.lightYellow
+let snowWhite = Color.snowWhite
 
 
 // Font Options
-let abrilFatFace = Font.AbrilFatFace
-let handlee = Font.Handlee
-let markerFelt = Font.MarkerFelt
-let pacifico = Font.Pacifico
-let satisfy = Font.Satisfy
-let savoye = Font.Savoye
-let zapfino = Font.Zapfino
+let abrilFatFace = Font.abrilFatFace
+let handlee = Font.handlee
+let markerFelt = Font.markerFelt
+let pacifico = Font.pacifico
+let satisfy = Font.satisfy
+let savoye = Font.savoye
+let zapfino = Font.zapfino
 
 
 // Clip Art Options
-let dradle = ClipArt.Dradle
-let garland = ClipArt.Garland
-let holly = ClipArt.Holly
-let menorah = ClipArt.Menorah
-let present = ClipArt.Present
-let snowflake1 = ClipArt.Snowflake1
-let snowflake2 = ClipArt.Snowflake2
-let snowman = ClipArt.Snowman
-let star = ClipArt.Star
-let christmasTree = ClipArt.Tree
+let dradle = ClipArt.dradle
+let garland = ClipArt.garland
+let holly = ClipArt.holly
+let menorah = ClipArt.menorah
+let present = ClipArt.present
+let snowflake1 = ClipArt.snowflake1
+let snowflake2 = ClipArt.snowflake2
+let snowman = ClipArt.snowman
+let star = ClipArt.star
+let christmasTree = ClipArt.tree
 
 
 // This is your card
@@ -90,11 +94,11 @@ printDocumentsDirectory()
 
 // Show card preview in Timeline view
 let imageView = UIImageView(image: printCard(card))
-XCPlaygroundPage.currentPage.liveView = imageView
+//XCPlaygroundPage.currentPage.liveView = imageView
 
 
 
-
+PlaygroundPage.current.liveView = imageView
 
 
 

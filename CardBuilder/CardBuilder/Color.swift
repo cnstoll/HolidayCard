@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 public enum Color {
-    case BlueSky
-    case SnowWhite
-    case LightBlue
-    case LightGreen
-    case LightRed
-    case LightOrange
-    case LightYellow
-    case HollyGreen
+    case blueSky
+    case snowWhite
+    case lightBlue
+    case lightGreen
+    case lightRed
+    case lightOrange
+    case lightYellow
+    case hollyGreen
 }

@@ -9,14 +9,14 @@
 import Foundation
 
 public enum ClipArt {
-    case Dradle
-    case Garland
-    case Holly
-    case Menorah
-    case Present
-    case Snowflake1
-    case Snowflake2
-    case Snowman
-    case Star
-    case Tree
+    case dradle
+    case garland
+    case holly
+    case menorah
+    case present
+    case snowflake1
+    case snowflake2
+    case snowman
+    case star
+    case tree
 }

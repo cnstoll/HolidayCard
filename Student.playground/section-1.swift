@@ -8,7 +8,7 @@ import CardBuilder
 var card = Card()
 
 // Customize your card
-card.addBackgroundColor(Color.HollyGreen)
+card.addBackgroundColor(Color.hollyGreen)
 
 // Start here
 
