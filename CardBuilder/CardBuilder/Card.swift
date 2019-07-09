@@ -98,7 +98,7 @@ open class Card {
             
         } else {
             let newView = UIImageView(frame: frameForClipArt(image))
-            newView.contentMode = UIViewContentMode.scaleAspectFit
+            newView.contentMode = UIView.ContentMode.scaleAspectFit
             newView.image = imageForClipArt(image)
             view.addSubview(newView)
             clipArtDictionary[image] = newView
